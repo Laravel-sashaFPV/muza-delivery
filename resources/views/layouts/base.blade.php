@@ -4,12 +4,12 @@
 <head>
 
     <meta charset="utf-8" />
-    <title>Dashboard | Skote - Admin & Dashboard Template</title>
+    <title>Dashboard | Admin</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesbrand" name="author" />
     <!-- App favicon -->
-    <link rel="shortcut icon" href="{{ asset('assets/images/favicon.ico')}}">
+    <link rel="shortcut icon" href="{{ asset('assets/images/icon.png')}}">
 
     <!-- Bootstrap Css -->
     <link href="{{ asset('assets/css/bootstrap.min.css')}}" id="bootstrap-style" rel="stylesheet" type="text/css" />
@@ -703,21 +703,21 @@
             <div class="d-flex">
                 <!-- LOGO -->
                 <div class="navbar-brand-box">
-                    <a href="index.html" class="logo logo-dark">
+                    <a href="/" class="logo logo-dark">
                                 <span class="logo-sm">
-                                    <img src="{{ asset('assets/images/logo.svg')}}" alt="" height="22">
+                                    <img src="{{ asset('assets/images/icon.png')}}" alt="" height="22">
                                 </span>
                         <span class="logo-lg">
                                     <img src="{{ asset('assets/images/logo-dark.png')}}" alt="" height="17">
                                 </span>
                     </a>
 
-                    <a href="index.html" class="logo logo-light">
+                    <a href="/" class="logo logo-light">
                                 <span class="logo-sm">
-                                    <img src="{{ asset('assets/images/logo-light.svg')}}" alt="" height="22">
+                                    <img src="{{ asset('assets/images/icon.png')}}" alt="" height="22">
                                 </span>
                         <span class="logo-lg">
-                                    <img src="{{ asset('assets/images/logo-light.png')}}" alt="" height="19">
+                                    <img src="{{ asset('assets/images/logo-light.png')}}" alt="" height="30">
                                 </span>
                     </a>
                 </div>
@@ -866,7 +866,6 @@
             </div>
 
             <div class="d-flex">
-
                 <div class="dropdown d-inline-block d-lg-none ms-2">
                     <button type="button" class="btn header-item noti-icon waves-effect" id="page-header-search-dropdown"
                             data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -1065,7 +1064,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="dropdown d-inline-block">
                     <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <img class="rounded-circle header-profile-user" src="assets/images/users/avatar-1.jpg" alt="Header Avatar">
@@ -1074,14 +1072,24 @@
                     </button>
                     <div class="dropdown-menu dropdown-menu-end">
                         <!-- item-->
-                        <a class="dropdown-item" href="#"><i class="bx bx-user font-size-16 align-middle me-1"></i> <span key="t-profile">Profile</span></a>
+                        <a class="dropdown-item" href="#"><i class="bx bx-user font-size-16 align-middle me-1 pull-left"></i> <span key="t-profile">Profile</span></a>
                         <a class="dropdown-item" href="#"><i class="bx bx-wallet font-size-16 align-middle me-1"></i> <span key="t-my-wallet">My Wallet</span></a>
                         <a class="dropdown-item d-block" href="#"><span class="badge bg-success float-end">11</span><i class="bx bx-wrench font-size-16 align-middle me-1"></i> <span key="t-settings">Settings</span></a>
                         <a class="dropdown-item" href="#"><i class="bx bx-lock-open font-size-16 align-middle me-1"></i> <span key="t-lock-screen">Lock screen</span></a>
                         <div class="dropdown-divider"></div>
+                        <div class="form-check form-switch" style="margin-left: 15px">
+                            <input class="form-check-input theme-choice" type="checkbox" id="light-mode-switch" checked>
+                            <label class="form-check-label" for="light-mode-switch">Light Mode</label>
+                        </div>
+                        <div class="form-check form-switch" style="margin-left: 15px">
+                            <input class="form-check-input theme-choice" type="checkbox" id="dark-mode-switch">
+                            <label class="form-check-label" for="dark-mode-switch">Dark Mode</label>
+                        </div>
+                        <div class="dropdown-divider"></div>
                         <a class="dropdown-item text-danger" href="#"><i class="bx bx-rewind-circle font-size-16 align-middle me-1 text-danger"></i> <span key="t-logout">Logout</span></a>
                     </div>
-                </div>                <div class="dropdown d-inline-block">
+                </div>
+                <div class="dropdown d-inline-block">
                     <button type="button" class="btn header-item noti-icon right-bar-toggle waves-effect">
                         <i class="bx bx-error-alt"></i>
                     </button>
@@ -1118,19 +1126,25 @@
                     <li class="menu-title" key="t-apps">Apps</li>
 
                     <li>
+                        <a href="/chat" class="waves-effect">
+                            <i class="bx bx-chat"></i>
+                            <span key="t-chat">Chat</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/map" class="waves-effect">
+                            <i class="bx bx-check-shield"></i>
+                            <span key="t-map">Map</span>
+                        </a>
+                    </li>
+                    <li>
                         <a href="calendar.html" class="waves-effect">
                             <i class="bx bx-calendar"></i>
                             <span key="t-calendar">Calendar</span>
                         </a>
                     </li>
 
-                    <li>
-                        <a href="chat.html" class="waves-effect">
-                            <i class="bx bx-chat"></i>
-                            <span key="t-chat">Chat</span>
-                        </a>
-                    </li>
-
+{{--
                     <li>
                         <a href="apps-filemanager.html" class="waves-effect">
                             <i class="bx bx-file"></i>
@@ -1254,6 +1268,7 @@
                             <li><a href="blog-details.html" key="t-blog-details">Blog Details</a></li>
                         </ul>
                     </li>
+                    --}}
 
                     <li class="menu-title" key="t-pages">Pages</li>
 
@@ -1564,11 +1579,11 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-sm-6">
-                        <script>document.write(new Date().getFullYear())</script> © Skote.
+                        <script>document.write(new Date().getFullYear())</script> © Muza Delivery
                     </div>
                     <div class="col-sm-6">
                         <div class="text-sm-end d-none d-sm-block">
-                            Design & Develop by Themesbrand
+                             Develop by <a href="https://github.com/sashaFPV" class="link-commnet-post">sashaFPV</a>
                         </div>
                     </div>
                 </div>
@@ -1594,7 +1609,6 @@
 
         <!-- Settings -->
         <hr class="mt-0" />
-        <h6 class="text-center mb-0">Choose Layouts</h6>
 
         <div class="p-4">
 
@@ -1611,6 +1625,7 @@
         </div>
 
     </div> <!-- end slimscroll-menu-->
+    <div><canvas data-engine="three.js r140" width="883" height="929" style="display: block; width: 883px; height: 929px; touch-action: none;"></canvas></div>
 </div>
 <!-- /Right-bar -->
 
@@ -1631,6 +1646,7 @@
 
 <!-- App js -->
 <script src="{{ asset('assets/js/app.js')}}"></script>
+<!-- Try 3D -->
 </body>
 
 </html>

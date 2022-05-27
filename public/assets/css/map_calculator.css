@@ -1,0 +1,138 @@
+@media (min-width: 940px) {
+.calcWrapper{
+	width: 100%;
+	padding: 10px;
+	margin:auto;
+}
+.calcForms{
+	text-align: center;
+}
+.calcSelBlock{
+	display:inline-block;
+	width: 32%;
+	text-align: left;
+	vertical-align:top;
+	overflow:hidden;
+}
+#ves{
+	padding:7px 0;
+}
+#results {
+	padding-left:50px;
+}
+#mapa {
+	height: 700px;
+	width: 100%;
+	display:block;
+
+}
+.btn.btn-primary{
+	border:1px solid red;
+	background-color: green;
+	border-radius: 8px;
+}
+.btn.btn-primary:hover{
+	color:#0090ff;
+	background-color: #fff;
+}
+.button13 {
+  display: inline-block;
+  font-size: 80%;
+  color: rgba(255,255,255,.9);
+  text-shadow: #2e7ebd 0 1px 2px;
+  text-decoration: none;
+  text-align: center;
+  line-height: 1.1;
+  white-space: pre-line;
+  padding: 5px;
+  border: 1px solid;
+  border-color: #60a3d8 #2970a9 #2970a9 #60a3d8;
+  border-radius: 6px;
+  outline: none;
+  background: #60a3d8 linear-gradient(#89bbe2, #60a3d8 50%, #378bce);
+  box-shadow: inset rgba(255,255,255,.5) 1px 1px;
+}
+.button13:first-line{
+  font-size: 170%;
+}
+.button13:hover {
+  color: rgb(255,255,255);
+}
+.button13:active {
+  color: rgb(255,255,255);
+  border-color: #2970a9;
+  background-image: linear-gradient(#5796c8, #6aa2ce);
+  box-shadow: none;
+}
+
+}
+@media (max-width: 939px) {
+	.calcWrapper{
+	width: 100%;
+	padding: 0 10px 10px 10px;
+	margin:auto;
+}
+.calcForms{
+	text-align: center;
+}
+.calcSelBlock{
+	/* display:inline-block; */
+	width: 100%;
+	text-align: left;
+	vertical-align:top;
+	overflow:hidden;
+}
+#ves{
+	padding:7px 0;
+	width: 100%;
+}
+#results {
+	padding-left:50px;
+}
+#mapa {
+	height: 450px;
+	width: 100%;
+	max-width: 800px;
+	display:block;
+
+}
+.btn.btn-primary{
+	border:1px solid red;
+	background-color: green;
+	border-radius: 8px;
+}
+.btn.btn-primary:hover{
+	color:#0090ff;
+	background-color: #fff;
+}
+.button13 {
+  display: inline-block;
+  font-size: 80%;
+  color: rgba(255,255,255,.9);
+  text-shadow: #2e7ebd 0 1px 2px;
+  text-decoration: none;
+  text-align: center;
+  line-height: 1.1;
+  white-space: pre-line;
+  padding: 5px;
+  border: 1px solid;
+  border-color: #60a3d8 #2970a9 #2970a9 #60a3d8;
+  border-radius: 6px;
+  outline: none;
+  background: #60a3d8 linear-gradient(#89bbe2, #60a3d8 50%, #378bce);
+  box-shadow: inset rgba(255,255,255,.5) 1px 1px;
+}
+.button13:first-line{
+  font-size: 170%;
+}
+.button13:hover {
+  color: rgb(255,255,255);
+  background-image: linear-gradient(#9dc7e7, #74afdd 50%, #378bce);
+}
+.button13:active {
+  color: rgb(255,255,255);
+  border-color: #2970a9;
+  background-image: linear-gradient(#5796c8, #6aa2ce);
+  box-shadow: none;
+}
+}
