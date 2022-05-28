@@ -22,7 +22,7 @@
             <!-- end page title -->
 
             <div class="row">
-                <div class="col-xl-4">
+                <div class="col-xl-6">
                     <div class="card overflow-hidden">
                         <div class="bg-primary bg-soft">
                             <div class="row">
@@ -70,7 +70,7 @@
                 </div>
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title mb-4">Monthly Earning</h4>
+                        <h4 class="card-title mb-6">Monthly Earning</h4>
                         <div class="row">
                             <div class="col-sm-6">
                                 <p class="text-muted">This month</p>
@@ -87,77 +87,15 @@
                                 </div>
                             </div>
                         </div>
-                        <p class="text-muted mb-0">We craft digital, graphic and dimensional thinking.</p>
                     </div>
                 </div>
             </div>
-            <div class="col-xl-8">
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="card mini-stats-wid">
-                            <div class="card-body">
-                                <div class="d-flex">
-                                    <div class="flex-grow-1">
-                                        <p class="text-muted fw-medium">Orders</p>
-                                        <h4 class="mb-0">1,235</h4>
-                                    </div>
-
-                                    <div class="flex-shrink-0 align-self-center">
-                                        <div class="mini-stat-icon avatar-sm rounded-circle bg-primary">
-                                                            <span class="avatar-title">
-                                                                <i class="bx bx-copy-alt font-size-24"></i>
-                                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card mini-stats-wid">
-                            <div class="card-body">
-                                <div class="d-flex">
-                                    <div class="flex-grow-1">
-                                        <p class="text-muted fw-medium">Revenue</p>
-                                        <h4 class="mb-0">$35, 723</h4>
-                                    </div>
-
-                                    <div class="flex-shrink-0 align-self-center ">
-                                        <div class="avatar-sm rounded-circle bg-primary mini-stat-icon">
-                                                            <span class="avatar-title rounded-circle bg-primary">
-                                                                <i class="bx bx-archive-in font-size-24"></i>
-                                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card mini-stats-wid">
-                            <div class="card-body">
-                                <div class="d-flex">
-                                    <div class="flex-grow-1">
-                                        <p class="text-muted fw-medium">Average Price</p>
-                                        <h4 class="mb-0">$16.2</h4>
-                                    </div>
-
-                                    <div class="flex-shrink-0 align-self-center">
-                                        <div class="avatar-sm rounded-circle bg-primary mini-stat-icon">
-                                                            <span class="avatar-title rounded-circle bg-primary">
-                                                                <i class="bx bx-purchase-tag-alt font-size-24"></i>
-                                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <div class="col-xl-6">
                 <!-- end row -->
-
                 <div class="card">
                     <div class="card-body">
+                        <div id="car_model"></div>
+                        {{--
                         <div class="d-sm-flex flex-wrap">
                             <h4 class="card-title mb-4">Email Sent</h4>
                             <div class="ms-auto">
@@ -174,8 +112,7 @@
                                 </ul>
                             </div>
                         </div>
-
-                        <div id="stacked-column-chart" class="apex-charts" dir="ltr"></div>
+                        <div id="stacked-column-chart" class="apex-charts" dir="ltr"></div>--}}
                     </div>
                 </div>
             </div>
@@ -784,8 +721,131 @@
                     </div>
                 </div>
             </div>
+            <div class="sketchfab-embed-wrapper">
+                <iframe frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/f3750246b6564607afbefc61cb1683b1/embed?ui_watermark_link=0"> </iframe>
+                </div>
             <!-- end row -->
         </div> <!-- container-fluid -->
     </div>
     <!-- container-fluid -->
 </div>
+<script src="{{asset('assets/js/three.min.js')}}"></script>
+<script src="{{asset('assets/js/GLTFLoader.js')}}"></script>
+<script src="{{asset('assets/js/OrbitControls.js')}}"></script>
+<script>
+    let scene, camera, renderer, controls, light, model;
+
+    function init() {
+        my_car = document.getElementById('car_model');
+        scene = new THREE.Scene();
+        scene.background = new THREE.Color(0xeaedfc);
+        /* scene.background = new THREE.CubeTextureLoader()
+           .setPath( 'skybox/' )
+           .load( [
+             'posx.jpg',
+             'negx.jpg',
+             'posy.jpg',
+             'negy.jpg',
+             'posz.jpg',
+             'negz.jpg'
+           ] );*/
+
+        camera = new THREE.PerspectiveCamera(60,window.innerWidth/window.innerHeight,1,1000);
+        camera.position.set(300,200,-400);
+
+        controls = new THREE.OrbitControls(camera);
+        //controls.noPan = true;
+        //controls.maxDistance = controls.minDistance = 300;
+        //controls.noKeys = true;
+        //controls.noRotate = true;
+        controls.noZoom = true;
+
+        //scene.add( new THREE.AxesHelper(500));
+
+        //
+
+        /*const spotLight = new THREE.SpotLight( 0xffffff );
+        spotLight.position.set( 100, 1000, 100, Math.PI / 10 );
+
+        spotLight.castShadow = true;
+
+        spotLight.shadow.mapSize.width = 1024;
+        spotLight.shadow.mapSize.height = 1024;
+
+        spotLight.shadow.camera.near = 500;
+        spotLight.shadow.camera.far = 4000;
+        spotLight.shadow.camera.fov = 30;
+
+        scene.add( spotLight );
+        const spotLightHelper = new THREE.SpotLightHelper( spotLight );
+        scene.add( spotLightHelper );*/
+        // !!!!!!!!!!!!!!!!!!!!!!
+        light = new THREE.SpotLight(0xfffff,0.1);
+        light.position.set(5,10,4);
+        light.castShadow = true;
+        light.shadow.bias = 1;
+        scene.add( light );
+        //const spotLightHelper = new THREE.SpotLightHelper( light );
+        //scene.add( spotLightHelper );
+        //!!!!!
+        hemiLight = new THREE.HemisphereLight(0xffeeb1, 0x080820, 4);
+        scene.add(hemiLight);
+
+        renderer = new THREE.WebGLRenderer();
+        renderer.toneMapping = THREE.ReinhardToneMapping;
+        renderer.toneMappingExposure = 2.3;
+
+        renderer.setSize(750,425);
+        renderer.shadowMap.enabled = true;
+        //
+        var groundMaterial = new THREE.MeshStandardMaterial( { color: 0xffffff } ); // !!!!
+        var mesh = new THREE.Mesh( new THREE.PlaneBufferGeometry( 600, 600 ), groundMaterial );
+        mesh.position.y = -88.0;
+        mesh.rotation.x = - Math.PI / 2;
+        mesh.receiveShadow = true;
+
+        const geometry = new THREE.CircleBufferGeometry( 500, 500 );
+        const material = new THREE.MeshBasicMaterial({ color: 0xeaedfc });
+        const circle = new THREE.Mesh(geometry, material);
+        circle.rotation.x = - Math.PI / 2;
+        circle.position.y = -89;
+        scene.add(circle);
+        //
+        renderer.shadowMap.enabled = true;
+        renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+        //
+
+        my_car.appendChild( renderer.domElement );
+
+
+
+        new THREE.GLTFLoader().load('{{asset('assets/gltf_models/scene.gltf')}}', result => {
+            model = result.scene.children[0];
+            model.position.set(0,-50,0);
+            model.traverse(n => { if ( n.isMesh ) {
+                n.castShadow = true;
+                n.receiveShadow = true;
+                if(n.material.map) n.material.map.anisotropy = 1;
+            }});
+            scene.add(model);
+
+            animate();
+        });
+    }
+    function animate() {
+        renderer.render(scene,camera);
+        light.position.set(
+            camera.position.x + 100,
+            camera.position.y + 100,
+            camera.position.z + 100,
+        );
+        scene.rotation.y += 0.0007;
+        requestAnimationFrame(animate);
+    }
+    init();
+</script>
+<style>
+    #car_model:hover {
+        cursor: grab;
+    }
+</style>
