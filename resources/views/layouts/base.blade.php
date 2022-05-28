@@ -1066,8 +1066,16 @@
                 </div>
                 <div class="dropdown d-inline-block">
                     <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <img class="rounded-circle header-profile-user" src="assets/images/users/avatar-1.jpg" alt="Header Avatar">
-                        <span class="d-none d-xl-inline-block ms-1" key="t-henry">Henry</span>
+                        @if(Route::has('login'))
+                            @auth
+                                {{--@if(Auth::user()->utype === 'ADM')--}}
+                                <img class="rounded-circle header-profile-user" src="assets/images/users/avatar-1.jpg" alt="Header Avatar">
+                                <span class="d-none d-xl-inline-block ms-1" key="t-henry">{{Auth::user()->name}}</span>
+                            @else
+                                <img class="rounded-circle header-profile-user" src="assets/images/users/def_user.png" alt="Header Avatar">
+                                <span class="d-none d-xl-inline-block ms-1" key="t-henry">User</span>
+                            @endif
+                        @endif
                         <i class="bx bx-desktop d-none d-xl-inline-block"></i>
                     </button>
                     <div class="dropdown-menu dropdown-menu-end">
@@ -1138,9 +1146,9 @@
                         </a>
                     </li>
                     <li>
-                        <a href="calendar.html" class="waves-effect">
+                        <a href="/chat_template" class="waves-effect">
                             <i class="bx bx-calendar"></i>
-                            <span key="t-calendar">Calendar</span>
+                            <span key="t-calendar">Chat_DEMO</span>
                         </a>
                     </li>
 

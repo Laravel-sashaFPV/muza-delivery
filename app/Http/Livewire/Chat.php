@@ -2,16 +2,17 @@
 
 namespace App\Http\Livewire;
 
+use GuzzleHttp\Psr7\Message;
 use Livewire\Component;
 
-class ChatComponent extends Component
+class Chat extends Component
 {
     public $userId;
     public $messageText;
 
     public $designTemplate = 'tailwind';
 
-    /*public function render()
+    public function render()
     {
         $messages = Message::with('user')
             ->latest()
@@ -20,8 +21,6 @@ class ChatComponent extends Component
             ->sortBy('id');
         return view('livewire.'.$this->designTemplate.'chat', compact('messages'));
     }
-    to be continued
-     */
 
     public function sendMessage()
     {
@@ -31,9 +30,5 @@ class ChatComponent extends Component
         ]);
 
         $this->reset('messageText');
-    }
-    public function render()
-    {
-        return view('livewire.chat-component')->layout('layouts.base');
     }
 }

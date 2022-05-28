@@ -24,6 +24,8 @@ Route::get('/', HomeComponent::class);
 Route::get('/icons', IconsComponent::class);
 Route::get('/chat', ChatComponent::class);
 Route::get('/map', MapComponent::class);
+Route::get('/chat_template', \App\Http\Livewire\Chat::class);
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),

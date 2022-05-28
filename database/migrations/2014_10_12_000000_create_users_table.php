@@ -22,7 +22,7 @@ return new class extends Migration
             $table->rememberToken();
             $table->foreignId('current_team_id')->nullable();
             $table->string('profile_photo_path', 2048)->nullable();
-            $table->string('utype')->default('USR')->comment('ADM - for Admin and USR - for Customer');
+            $table->string('utype')->default('USR')->comment('ADM - for Admin, USR - for User, MNG - for Manager');
             $table->timestamps();
         });
     }
